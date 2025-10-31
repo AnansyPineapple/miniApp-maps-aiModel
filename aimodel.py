@@ -13,7 +13,7 @@ flask_app = Flask(__name__)
 logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
 
 #Сама модель для работы с запросом
-model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+model = SentenceTransformer('paraphrase-multilingual-MiniLM-L6-v2')
 model = model.half()
 
 #Наши категории из таблицы
@@ -88,4 +88,5 @@ def define_categories_endpoint():
     return jsonify({'categories': found[:max_categories]})
 
 if __name__ == '__main__':
+
     flask_app.run(host='0.0.0.0', port=5000, debug=False)
